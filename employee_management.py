@@ -1,6 +1,3 @@
-# employee_management.py
-# Employee Management System using Python OOP and File Handling
-
 class Employee:
     def __init__(self, emp_id, name, salary):
         self.emp_id = emp_id
