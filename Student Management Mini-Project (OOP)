@@ -1,0 +1,48 @@
+class Student:
+    def __init__(self, name, roll_no):
+        self.name = name
+        self.roll_no = roll_no
+
+class StudentManagement:
+    def __init__(self):
+        self.students = []
+
+    def add_student(self):
+        name = input("Enter student name: ")
+        roll_no = input("Enter roll number: ")
+        student = Student(name, roll_no)
+        self.students.append(student)
+        print("Student added successfully.")
+
+    def view_students(self):
+        if not self.students:
+            print("No students found.")
+        else:
+            print("Student List:")
+            for s in self.students:
+                print(f"Name: {s.name}, Roll No: {s.roll_no}")
+
+    def delete_student(self):
+        roll_no = input("Enter roll number to delete: ")
+        for s in self.students:
+            if s.roll_no == roll_no:
+                self.students.remove(s)
+                print("Student removed successfully.")
+                return
+        print("Student not found.")
+
+sm = StudentManagement()
+
+while True:
+    print("\n1. Add Student\n2. View Students\n3. Delete Student\n4. Exit")
+    choice = input("Enter choice: ")
+    if choice == "1":
+        sm.add_student()
+    elif choice == "2":
+        sm.view_students()
+    elif choice == "3":
+        sm.delete_student()
+    elif choice == "4":
+        break
+    else:
+        print("Invalid choice!")
